@@ -69,3 +69,6 @@ input{
     color: white;
 }
 
+.scale-up-center:hover{animation:scale-up-center forwards; }
+@keyframes scale-up-center{ 0%{transform:scale(1)} 100%{transform:scale(1.2)} }
+
