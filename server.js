@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const db = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password: '', // Aquí deberías especificar la contraseña de tu base de datos MySQL
+    password: 'root', // Aquí deberías especificar la contraseña de tu base de datos MySQL
     database: 'moneymate'
 });
 
@@ -23,6 +23,7 @@ db.connect((err) => {
 });
 
 // Configurar rutas
+//esta ruta se llama desde el script que maneja el formulario y devuelve si el email y password estan en la base de datos, el otro script maneja el resto
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
     const query = 'SELECT * FROM usuarios WHERE email = ? AND password = ?';
