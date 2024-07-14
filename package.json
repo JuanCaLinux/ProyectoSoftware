@@ -1,4 +1,4 @@
-  {
+{
   "name": "proyectosoftware",
   "version": "1.0.0",
   "main": "server.js",
@@ -19,8 +19,11 @@
   },
   "homepage": "https://github.com/JuanCaLinux/ProyectoSoftware#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-validator": "^7.1.0",
     "mysql": "^2.18.1"
   }
 }

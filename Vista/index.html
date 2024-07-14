@@ -2,61 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="Estilos/style.css">
-    <title>Document</title>
+    <title>Money Mate - Inicio de Sesión</title>
+    <meta name="description" content="Página de inicio de sesión para Money Mate">
 </head>
 <body>
 <div class="container">
     <h1 class="rotated">MONEY MATE</h1>
     <div class="background">
-        <img src="Imagenes/logosinfondo.png">
+        <img src="Imagenes/logosinfondo.png" alt="Logo Money Mate">
         <form id="loginForm">
-            <label> USUARIO
-                <input type="email" id="email" required>
+            <label for="email">USUARIO
+                <input type="email" id="email" name="email" required>
             </label>
-            <label> CONTRASEÑA
-                <input type="password" id="password" required>
+            <label for="password">CONTRASEÑA
+                <input type="password" id="password" name="password" required>
             </label>
             <button type="submit" class="login scale-up-center">INICIAR SESION</button>
-            <button type="button" class="register scale-up-center">Registrarse
-            </button>
-
+            <button type="button" class="register scale-up-center">Registrarse</button>
         </form>
     </div>
 </div>
 <script>
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
+    document.getElementById('loginForm').addEventListener('submit', async function(event) {
         event.preventDefault();
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
-        fetch('/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email: email, password: password })
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Error al intentar iniciar sesión');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.success) {
-                    window.location.href = 'Menu.html';
-                } else {
-                    alert('Email o contraseña incorrectos');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Error al intentar iniciar sesión');
+        try {
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
             });
+
+            if (!response.ok) {
+                let errorMessage = 'Error al intentar iniciar sesión';
+                if (response.status === 401) {
+                    errorMessage = 'Email o contraseña incorrectos';
+                }
+                throw new Error(errorMessage);
+            }
+
+            const data = await response.json();
+            if (data.success) {
+                window.location.href = 'Menu.html';
+            } else {
+                alert('Email o contraseña incorrectos');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert(error.message);
+        }
     });
 
     document.querySelector('.register').addEventListener('click', function() {
