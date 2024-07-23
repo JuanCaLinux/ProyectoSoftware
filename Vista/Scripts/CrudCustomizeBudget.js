@@ -54,19 +54,18 @@ function guardarFila(button) {
  * El nuevo botón de la fila está configurado para activar el modo de edición.
  */
 function agregarCategoria() {
-    let tableBody = document.querySelector('.tabla tbody'); // Obtiene el cuerpo de la tabla
-    let newRow = document.createElement('tr'); // Crea una nueva fila (tr)
+    let tableBody = document.querySelector('.tabla tbody');
+    let newRow = document.createElement('tr');
 
-    // Define el contenido HTML para la nueva fila
     newRow.innerHTML = `
         <td class="categoria"><input type="text" placeholder="Categoría"></td>
         <td class="monto"><input type="text" placeholder="Monto"></td>
         <td><button class="edit-button" onclick="editarFila(this)">Editar</button></td>
     `;
 
-    // Añade la nueva fila al final del cuerpo de la tabla
     tableBody.appendChild(newRow);
 }
+
 
 // Agrega un evento al botón 'Agregar Categoría' que llama a la función 'agregarCategoria'
 document.getElementById('agregar-categoria').addEventListener('click', agregarCategoria);
