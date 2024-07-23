@@ -16,6 +16,7 @@ appLogin.post('/login', (req, res) => {
     const query = 'SELECT * FROM usuarios WHERE email = ? AND password = ?';
 
     db.query(query, [email, password], (err, results) => {
+        console.log(res.json.body)
         if (err) throw err;
 
         if (results.length > 0) {
