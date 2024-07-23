@@ -1,0 +1,92 @@
+body{
+    background-color: #222;
+    height: 90vh;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    padding: 10px;
+}
+
+
+.logo_blanco_container {
+    display: flex;
+    align-items: center;
+}
+.background {
+    background-color: #d9d9d9;
+    border-radius: 10px;
+    width: 330px;
+    height: 330px;
+    box-shadow: 12px 12px #a7a7a6;
+    display: grid;
+    place-items: center;
+}
+.logo_blanco {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.lista {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.lista li {
+    margin-left: 20px;
+}
+
+.lista a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.lista a:hover {
+    text-decoration: underline;
+}
+
+#Titulo {
+    margin-top: 20px;
+}
+
+.categorias button {
+    background-color: lightblue;
+    border: none;
+    text-align: left;
+    padding: 10px;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+}
+
+.grafico-contenedor {
+    width: 100%;
+    height: 100%;
+}
+
+.reporte, .buscar {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.reporte h2, .buscar h2 {
+    margin-bottom: 10px;
+}
+
+.reporte p, .buscar p {
+    margin: 5px 0;
+}
+
+button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
