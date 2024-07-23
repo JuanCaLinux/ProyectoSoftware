@@ -3,7 +3,7 @@ const mysql = require("mysql");
 const db = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password: 'root', // Aquí deberías especificar la contraseña de tu base de datos MySQL
+    password: '', // Aquí deberías especificar la contraseña de tu base de datos MySQL
     database: 'moneymate'
 });
 
