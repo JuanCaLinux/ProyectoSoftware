@@ -18,6 +18,9 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         })
         .then(data => {
             if (data.success) {
+                localStorage.setItem('role', data.admin ? 'admin' : 'user');
+                localStorage.setItem('userId', data.userId); // Guardar el ID del usuario
+
                 if (data.admin) {
                     window.location.href = 'admin_dashboard.html'; // Página de administradores
                 } else {

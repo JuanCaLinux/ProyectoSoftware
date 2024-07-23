@@ -1,6 +1,6 @@
 
 
-document.getElementById("formRegister").addEventListener("submit", function(event){
+document.getElementById("formReg    ister").addEventListener("submit", function(event){
     event.preventDefault()
 
     const nombre = document.getElementById("nombre").value

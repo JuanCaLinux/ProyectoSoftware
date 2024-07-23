@@ -4,6 +4,7 @@ const path = require('path');
 const db = require("./connectBD.js")
 const appLogin = require("./loginBD.js")
 const appRegister = require("./registerBD")
+const appRegistrarGasto = require("./registroGastosBD")
 const mysql = require("mysql");
 
 const app = express();
@@ -23,6 +24,9 @@ app.use(appLogin);
 
 // Ruta para manejar el registro de usuarios
 app.use(appRegister);
+
+// Ruta para manejar el registro de gastos
+app.use(appRegistrarGasto);
 
 
 const PORT = 3000; // Cambiado a un puerto comúnmente utilizado para servidores web
