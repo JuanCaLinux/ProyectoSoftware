@@ -7,6 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="Estilos/PersonalizarPresupuesto.css">
     <title>Document</title>
+    <style>
+        .edit-button {
+            background-color: #4CAF50; /* Color verde */
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 2px 1px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <header class="menu">
@@ -30,29 +44,34 @@
         <tr>
             <th>CATEGORIA</th>
             <th>PRESUPUESTO</th>
+            <th>ACCIONES</th>
         </tr>
         </thead>
         <tbody>
         <tr>
             <td class="categoria">ALIMENTO</td>
             <td class="monto">400,000</td>
+            <td><button class="edit-button" onclick="editarFila(this)">Editar</button></td>
         </tr>
         <tr>
             <td class="categoria">VIVIENDA</td>
             <td class="monto">700,000</td>
+            <td><button class="edit-button" onclick="editarFila(this)">Editar</button></td>
         </tr>
         <tr>
             <td class="categoria">TRANSPORTE</td>
             <td class="monto">150,000</td>
+            <td><button class="edit-button" onclick="editarFila(this)">Editar</button></td>
         </tr>
         </tbody>
     </table>
 
     <div class="container-button">
         <button class="scale-up-center" id="guardar"><span>GUARDAR</span></button>
-        <button class="scale-up-center"id="agregar-categoria"><span>AGREGAR CATEGORIA</span></button>
+        <button class="scale-up-center" id="agregar-categoria"><span>AGREGAR CATEGORIA</span></button>
     </div>
 </main>
 
+<script src="Scripts/CrudCustomizeBudget.js"></script>
 </body>
 </html>
