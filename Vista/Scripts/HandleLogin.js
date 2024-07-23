@@ -18,7 +18,11 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         })
         .then(data => {
             if (data.success) {
-                window.location.href = 'menu.html';
+                if (data.admin) {
+                    window.location.href = 'admin_dashboard.html'; // Página de administradores
+                } else {
+                    window.location.href = 'menu.html'; // Página de usuarios normales
+                }
             } else {
                 alert('Email o contraseña incorrectos');
             }

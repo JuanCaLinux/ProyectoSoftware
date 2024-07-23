@@ -15,16 +15,18 @@ appLogin.post('/login', (req, res) => {
     // Consulta SQL para verificar si el email y el password existen en la tabla de usuarios
     const query = 'SELECT * FROM usuarios WHERE email = ? AND password = ?';
 
-    // Ejecución de la consulta SQL con los valores de email y password
     db.query(query, [email, password], (err, results) => {
-        // Manejo de errores en la consulta
         if (err) throw err;
-        // Verificación de los resultados de la consulta
+
         if (results.length > 0) {
-            // Si se encuentran resultados, se responde con éxito
-            res.json({ success: true });
+            const user = results[0];
+
+            if (user.role === 'admin') {
+                res.json({ success: true, admin: true });
+            } else {
+                res.json({ success: true, admin: false });
+            }
         } else {
-            // Si no se encuentran resultados, se responde con fallo
             res.json({ success: false });
         }
     });
