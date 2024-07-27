@@ -16,13 +16,27 @@ appCategoria.get("/categoria",(req, res)=>{
     });
 })
 
+appCategoria.delete("/categoria",(req,res)=>{
+    const id = req.body
+    const query = 'DELETE FROM categorias WHERE id = ?;'
+
+    db.query(query,[id],(err,results)=>{
+        if (err) throw err;
+        if(results.affectedRows===0){
+            return res.json({success:false,message:"no encontrado"})
+        }
+        return res.json({success:true,message:"dato eliminado correctamente"})
+    })
+})
+
 /*ruta que actualiza las categorias todas*/
 appCategoria.put("/categoria",async (req, res)=>{
-    const {categorias} = req.body
+    const {categoriasActualizar} = req.body
     const query = 'UPDATE categorias SET nombre = ?, presupuesto = ? WHERE usuario_id = ? AND id = ?;'
 
 
-   const promises = categorias.map(async (categoria)=>{
+/*hay que manejar que guarde los que no existen */
+   const promises = categoriasActualizar.map(async (categoria)=>{
         await db.query(query, [categoria.categoria,categoria.monto,categoria.usuarioId,categoria.id], (err, results) => {
             if (err) throw err;
             if (results.insertId){
