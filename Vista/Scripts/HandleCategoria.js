@@ -63,24 +63,44 @@ document.getElementById("guardar").addEventListener("click",()=> {
                     categoriasActualizar.map(categoria=>{
                         console.log(categoria)
                     })
-                    // console.log(data.data[0].nombre)
-                    fetch(`/categoria?usuarioId=${usuarioId}`, {
-                    method: 'PUT',
-                        headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({categoriasActualizar})
-                }).then(response => response.json())
-                        .then(data=>{
-                            if(data.success) {
-                                alert("categorias guardadas correctamente")
-                            }else{
-                                alert("error, ingrese todos los campos")
-                            }
-                    })
 
-        /*HACER UN FETCH PARA EL POST*/
-                }
+        if(categoriasActualizar.length>0){
+            fetch(`/categoria?usuarioId=${usuarioId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({categoriasActualizar})
+            }).then(response => response.json())
+                .then(data=>{
+                    if(data.success) {
+                        alert("categorias actualizadas guardadas correctamente")
+                    }else{
+                        alert("error, ingrese todos los campos")
+                    }
+                })
+
+        }
+
+        if(categoriasNuevas.length>0){
+            fetch(`/categoria`,{
+                method:'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({categoriasNuevas})
+            }).then(response => response.json())
+                .then(data=>{
+                    if (data.success){
+                        alert("categorias nuevas agregadas correctamente")
+                    }else{
+                        console.log(data.success)
+                        alert("error, ingrese todos los campos post")
+                    }
+                }).catch(error => console.error('Error:', error));
+        }
+                    // console.log(data.data[0].nombre)
+    }
 })
 
 

@@ -29,6 +29,34 @@ appCategoria.delete("/categoria",(req,res)=>{
     })
 })
 
+/*ruta para agregar categorias*/
+appCategoria.post("/categoria", async(req,res)=>{
+    const {categoriasNuevas} = req.body
+    let categoryAdded = [];
+    const query = 'INSERT INTO categorias (nombre, presupuesto, usuario_id) VALUES (?, ?, ?);'
+
+try{
+    await Promise.all(categoriasNuevas.map((categoria)=>{
+        return new Promise((resolve,reject)=>{
+            db.query(query,[categoria.categoria,categoria.monto,categoria.usuarioId],(err,results)=>{
+                if (err) throw err;
+                if(results.affectedRows>0){
+                    categoryAdded.push(categoria.id)
+                }
+                resolve();
+            })
+        })
+    }))
+    res.json({ success: true, message: 'Registros actualizados con éxito'})
+}catch (err){
+    console.error('Error in request handling:', err);
+    res.status(500).json({ success: false, message: 'Error al actualizar registros', error: err.message });
+}
+
+
+
+})
+
 /*ruta que actualiza las categorias todas*/
 appCategoria.put("/categoria",async (req, res)=>{
     const {categoriasActualizar} = req.body
