@@ -6,9 +6,11 @@ const appLogin = require("./loginBD.js")
 const appRegister = require("./registerBD")
 const appCategoria = require("./categoriaBD")
 const mysql = require("mysql");
-const {PORT} = require("./config.js")
+import { config } from 'dotenv';
 
 const app = express();
+config();
+const { PORT } = process.env;
 
 // Configurar body-parser
 app.use(bodyParser.json());
