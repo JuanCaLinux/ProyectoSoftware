@@ -19,7 +19,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Servir archivos estáticos desde la carpeta 'Vista' sirve el index.html en el inicio del servidor
 app.use(express.static(path.join(__dirname,"..", 'Vista'))); //busca el index, porque maneja la solicitud que hacen al servidor y ubica el index y lo pone
 
-
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '..', 'Vista', 'index.html'));
+});
 // Configurar rutas
 
 //Ruta para manejar el login
