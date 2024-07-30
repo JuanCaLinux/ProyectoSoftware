@@ -6,6 +6,7 @@ const appLogin = require("./loginBD.js")
 const appRegister = require("./registerBD")
 const appCategoria = require("./categoriaBD")
 const mysql = require("mysql");
+const {PORT} = require("./config.js")
 
 const app = express();
 
@@ -28,7 +29,7 @@ app.use(appRegister);
 app.use(appCategoria);
 
 
-const PORT = 3000; // Cambiado a un puerto comúnmente utilizado para servidores web
+//const PORT = 3000; // Cambiado a un puerto comúnmente utilizado para servidores web
 app.listen(PORT, () => {
     console.log(`Servidor iniciado en el puerto ${PORT}`);
 });
