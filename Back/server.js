@@ -1,22 +1,26 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const path = require('path');
-const db = require("./connectBD.js")
-const appLogin = require("./loginBD.js")
-const appRegister = require("./registerBD")
-const appCategoria = require("./categoriaBD")
-const appRegistrarGasto = require("./registroGastosBD")
+import express from 'express'
+import bodyParser from 'body-parser'
+import path from 'path'
+import { fileURLToPath } from 'url';
+import db from "./connectBD.js"
+import appLogin from "./loginBD.js"
+import appRegister from "./registerBD.js"
+import appCategoria from "./categoriaBD.js"
+import appRegistrarGasto from "./registroGastosBD.js"
 
-const mysql = require("mysql");
+import mysql from "mysql";
 import { config } from 'dotenv';
 
 const app = express();
 config();
-const { PORT } = process.env;
+const PORT = process.env.PORT || 3000;
 
 // Configurar body-parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Servir archivos estáticos desde la carpeta 'Vista' sirve el index.html en el inicio del servidor
 app.use(express.static(path.join(__dirname,"..", 'Vista'))); //busca el index, porque maneja la solicitud que hacen al servidor y ubica el index y lo pone

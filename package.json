@@ -2,6 +2,7 @@
   "name": "proyectosoftware",
   "version": "1.0.0",
   "main": "Back/server.js",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "start": "node Back/server.js"
