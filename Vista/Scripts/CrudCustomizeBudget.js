@@ -57,9 +57,23 @@ function agregarCategoria() {
     let tableBody = document.querySelector('.tabla tbody');
     let newRow = document.createElement('tr');
 
+    // Obtener el mayor ID actual de la tabla
+    let maxId = 0;
+    const hiddenIds = tableBody.querySelectorAll('.id input[type="hidden"]');
+    hiddenIds.forEach(input => {
+        const id = parseInt(input.value, 10);
+        if (id > maxId) {
+            maxId = id;
+        }
+    });
+
+    // Incrementar el ID
+    let newId = maxId + 1;
+
     newRow.innerHTML = `
         <td class="categoria"><input type="text" placeholder="Categoría"></td>
         <td class="monto"><input type="text" placeholder="Monto"></td>
+        <td class="id"><input type="hidden"  value="${newId}"></td>
         <td><button class="edit-button" onclick="editarFila(this)">Editar</button></td>
     `;
 
