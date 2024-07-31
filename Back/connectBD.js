@@ -27,10 +27,13 @@ config(); // Cargar variables de entorno desde .env
 const createDBConnection = async () => {
     try {
         const dbUrl = process.env.DATABASE_URL;
-        const { hostname: host, port, pathname, auth } = new URL(dbUrl);
-        const [user, password] = auth.split(':');
-        const database = pathname.slice(1);
+        const host = "viaduct.proxy.rlwy.net"
+        const port = 19751
+        const user = "root"
+        const  password = "ArvsjUfSJYLGeRfsLLGRrbnKfvUfgjbI"
+        const database = "railway"
 
+        // mysql://root:ArvsjUfSJYLGeRfsLLGRrbnKfvUfgjbI@viaduct.proxy.rlwy.net:19751/railway
         const db = await mysql.createConnection({
             host,
             port,

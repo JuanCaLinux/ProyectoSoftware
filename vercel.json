@@ -8,15 +8,15 @@
   ],
   "routes": [
     {
-      "src": "/login",
+      "src": "/api/login",
       "dest": "/api/login"
     },
     {
-      "src": "/register",
+      "src": "/api/register",
       "dest": "/api/register"
     },
     {
-      "src": "/categoria",
+      "src": "/api/categoria",
       "dest": "/api/categoria"
     },
     {

@@ -7,11 +7,13 @@ import appLogin from "./loginBD.js"
 import appRegister from "./registerBD.js"
 import appCategoria from "./categoriaBD.js"
 import appRegistrarGasto from "./registroGastosBD.js"
+import cors from 'cors';
 
 import mysql from "mysql";
 import { config } from 'dotenv';
 
 const app = express();
+app.use(cors())
 config();
 const PORT = process.env.PORT || 3000;
 
