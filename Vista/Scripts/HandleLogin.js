@@ -1,3 +1,4 @@
+// frontend/HandleLogin.js
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const email = document.getElementById('email').value;
@@ -19,12 +20,12 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         .then(data => {
             if (data.success) {
                 localStorage.setItem('role', data.admin ? 'admin' : 'user');
-                localStorage.setItem('userId', data.userId); // Guardar el ID del usuario
+                localStorage.setItem('userId', data.userId);
 
                 if (data.admin) {
-                    window.location.href = 'admin_dashboard.html'; // Página de administradores
+                    window.location.href = 'admin_dashboard.html';
                 } else {
-                    window.location.href = 'menu.html'; // Página de usuarios normales
+                    window.location.href = 'menu.html';
                 }
             } else {
                 alert('Email o contraseña incorrectos');
@@ -37,6 +38,5 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 });
 
 document.querySelector('.register').addEventListener('click', function() {
-    // Redirige a la página de registro cuando se hace clic en el botón de registrarse
     window.location.href = 'register.html';
 });
