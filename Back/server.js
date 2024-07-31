@@ -5,6 +5,8 @@ const db = require("./connectBD.js")
 const appLogin = require("./loginBD.js")
 const appRegister = require("./registerBD")
 const appCategoria = require("./categoriaBD")
+const appRegistrarGasto = require("./registroGastosBD")
+
 const mysql = require("mysql");
 import { config } from 'dotenv';
 
@@ -22,9 +24,16 @@ app.use(express.static(path.join(__dirname,"..", 'Vista'))); //busca el index, p
 
 // Configurar rutas
 
+
 app.use("/api/login", appLogin);
 app.use("/api/register", appRegister);
 app.use("/api/categoria", appCategoria);
+
+
+// Ruta para manejar el registro de gastos
+app.use(appRegistrarGasto);
+
+
 
 
 app.get('*', (req, res) => {

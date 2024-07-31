@@ -12,5 +12,9 @@
   "dependencies": {
     "chromedriver": "^126.0.5",
     "selenium-webdriver": "^4.23.0"
+  },
+
+  "scripts": {
+    "start": "node app.js" // o el comando correcto para iniciar tu aplicación
   }
 }
