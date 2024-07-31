@@ -24,14 +24,11 @@ app.use(express.static(path.join(__dirname,"..", 'Vista'))); //busca el index, p
 
 // Configurar rutas
 
-//Ruta para manejar el login
-app.use(appLogin);
 
-// Ruta para manejar el registro de usuarios
-app.use(appRegister);
+app.use("/api/login", appLogin);
+app.use("/api/register", appRegister);
+app.use("/api/categoria", appCategoria);
 
-
-app.use(appCategoria);
 
 // Ruta para manejar el registro de gastos
 app.use(appRegistrarGasto);
@@ -39,6 +36,9 @@ app.use(appRegistrarGasto);
 
 
 
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '..', 'Vista', 'index.html'));
+});
 //const PORT = 3000; // Cambiado a un puerto comúnmente utilizado para servidores web
 app.listen(PORT, () => {
     console.log(`Servidor iniciado en el puerto ${PORT}`);

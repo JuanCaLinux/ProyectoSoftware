@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "Back/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/login",
+      "dest": "/api/login"
+    },
+    {
+      "src": "/register",
+      "dest": "/api/register"
+    },
+    {
+      "src": "/categoria",
+      "dest": "/api/categoria"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/Back/server.js"
+    }
+  ]
+}
