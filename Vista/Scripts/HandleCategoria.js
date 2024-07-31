@@ -1,10 +1,12 @@
 // Obtener datos del backend y actualizar la interfaz de usuario
 let categoriasExistentesId = []
-document.addEventListener('DOMContentLoaded', () => {
+function GuardarArchivos (){
+    console.log("se cargo este")
     const usuarioId = localStorage.getItem('userId');
 
     if (usuarioId) {
-        fetch(`/categoria?usuarioId=${usuarioId}`)
+
+        fetch(`/api/categoria?usuarioId=${usuarioId}`)
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
@@ -28,10 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
     }
+}
+document.addEventListener('DOMContentLoaded', () => {
+    GuardarArchivos();
 });
 
 
 document.getElementById("guardar").addEventListener("click",()=> {
+    GuardarArchivos();
     // Función para obtener el contenido de las celdas y enviarlo al servidor
     const usuarioId = localStorage.getItem('userId');
     let categoriasActualizar = [];
@@ -65,7 +71,7 @@ document.getElementById("guardar").addEventListener("click",()=> {
                     })
 
         if(categoriasActualizar.length>0){
-            fetch(`/categoria?usuarioId=${usuarioId}`, {
+            fetch(`/api/categoria?usuarioId=${usuarioId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -75,6 +81,7 @@ document.getElementById("guardar").addEventListener("click",()=> {
                 .then(data=>{
                     if(data.success) {
                         alert("categorias actualizadas guardadas correctamente")
+                        location.reload()
                     }else{
                         alert("error, ingrese todos los campos")
                     }
@@ -83,7 +90,7 @@ document.getElementById("guardar").addEventListener("click",()=> {
         }
 
         if(categoriasNuevas.length>0){
-            fetch(`/categoria`,{
+            fetch(`/api/categoria`,{
                 method:'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -93,6 +100,7 @@ document.getElementById("guardar").addEventListener("click",()=> {
                 .then(data=>{
                     if (data.success){
                         alert("categorias nuevas agregadas correctamente")
+                        location.reload()
                     }else{
                         console.log(data.success)
                         alert("error, ingrese todos los campos post")
