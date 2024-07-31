@@ -5,6 +5,8 @@ const db = require("./connectBD.js")
 const appLogin = require("./loginBD.js")
 const appRegister = require("./registerBD")
 const appCategoria = require("./categoriaBD")
+const appRegistrarGasto = require("./registroGastosBD")
+
 const mysql = require("mysql");
 import { config } from 'dotenv';
 
@@ -28,7 +30,13 @@ app.use(appLogin);
 // Ruta para manejar el registro de usuarios
 app.use(appRegister);
 
+
 app.use(appCategoria);
+
+// Ruta para manejar el registro de gastos
+app.use(appRegistrarGasto);
+
+
 
 
 //const PORT = 3000; // Cambiado a un puerto comúnmente utilizado para servidores web
