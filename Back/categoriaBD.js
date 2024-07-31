@@ -1,6 +1,6 @@
-const express = require("express");
+import express from "express"
 const appCategoria = express();
-const db = require("./connectBD.js")
+import db from "./connectBD.js";
 /*ruta que devuelve todas*/
 appCategoria.get("/categoria",(req, res)=>{
     let usuario_id = req.query.usuarioId;
@@ -92,4 +92,4 @@ appCategoria.put("/categoria",async (req, res)=>{
     }
 })
 
-module.exports=appCategoria
+export default appCategoria

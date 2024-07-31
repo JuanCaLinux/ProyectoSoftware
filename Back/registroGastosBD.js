@@ -1,6 +1,6 @@
-const express = require("express");
+import express from "express"
 const appRegistrarGasto = express();
-const db = require("./connectBD.js");
+import db from "./connectBD.js";
 
 
 
@@ -31,4 +31,4 @@ appRegistrarGasto.post('/registrar-gasto', (req, res) => {
         });
     });
 });
-module.exports = appRegistrarGasto;
+export default  appRegistrarGasto;

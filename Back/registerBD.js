@@ -1,6 +1,6 @@
-const express = require("express");
+import express from "express"
 const appRegister = express();
-const db = require("./connectBD");
+import db from "./connectBD.js";
 
 appRegister.post('/register', (req, res) => {
     const { nombre, apellido, email, telefono, usuario, password } = req.body;
@@ -21,4 +21,4 @@ appRegister.post('/register', (req, res) => {
         res.status(200).json({ success: true, message: 'Usuario registrado correctamente' });
     });
 });
-module.exports = appRegister
+export default appRegister

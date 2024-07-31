@@ -1,9 +1,9 @@
 // Importación del módulo express para crear el servidor
-const express = require("express");
+import express from "express"
 // Creación de una instancia de la aplicación express para manejar las rutas de login
 const appLogin = express();
 // Importación del módulo de conexión a la base de datos
-const db = require("./connectBD.js");
+import db from "./connectBD.js";
 
 // Middleware para parsear el cuerpo de las solicitudes como JSON
 appLogin.use(express.json());
@@ -38,4 +38,4 @@ appLogin.post('/login', (req, res) => {
 });
 
 // Exportación de la instancia de la aplicación para ser usada en otros módulos
-module.exports = appLogin;
+export default appLogin;

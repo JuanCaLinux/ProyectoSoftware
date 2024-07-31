@@ -18,15 +18,26 @@
 //
 // module.exports = db;
 
-/*cambio para ver si funciona en vercel*/
 import mysql from 'mysql2/promise';
 import { config } from 'dotenv';
+import { parse } from 'url';
 
 config(); // Cargar variables de entorno desde .env
 
 const createDBConnection = async () => {
     try {
-        const db = await mysql.createConnection(process.env.DATABASE_URL);
+        const dbUrl = process.env.DATABASE_URL;
+        const { hostname: host, port, pathname, auth } = new URL(dbUrl);
+        const [user, password] = auth.split(':');
+        const database = pathname.slice(1);
+
+        const db = await mysql.createConnection({
+            host,
+            port,
+            user,
+            password,
+            database,
+        });
         console.log('Conectado a la base de datos MySQL.');
         return db;
     } catch (err) {
@@ -35,6 +46,5 @@ const createDBConnection = async () => {
     }
 };
 
-const db = createDBConnection();
+export default createDBConnection;
 
-export default db;
