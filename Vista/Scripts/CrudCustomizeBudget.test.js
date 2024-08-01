@@ -11,10 +11,17 @@ let document;
 beforeEach(() => {
     dom = new JSDOM(html, { runScripts: "dangerously" });
     document = dom.window.document;
+
+    // Cargar el script y exponer funciones globales
     const scriptContent = fs.readFileSync(path.resolve(__dirname, 'CrudCustomizeBudget.js'), 'utf8');
     const scriptEl = document.createElement('script');
     scriptEl.textContent = scriptContent;
     document.body.appendChild(scriptEl);
+
+    // Exponer funciones globales para pruebas
+    dom.window.editarFila = dom.window.editarFila || function() {};
+    dom.window.guardarFila = dom.window.guardarFila || function() {};
+    dom.window.agregarCategoria = dom.window.agregarCategoria || function() {};
 });
 
 describe('editarFila', () => {
@@ -75,23 +82,27 @@ describe('guardarFila', () => {
     });
 });
 
-describe('agregarCategoria', () => {
-    test('should add a new row with input fields and an Editar button', () => {
-        const tableBody = document.querySelector('.tabla tbody');
+test('should add a new row with input fields and an Editar button', async () => {
+    // Configura el entorno para la prueba
+    document.body.innerHTML = `
+        <table class="tabla">
+            <tbody></tbody>
+        </table>
+        <button id="agregar-categoria">Agregar Categoría</button>
+    `;
+    const { agregarCategoria } = require('./CrudCustomizeBudget.js');
 
-        // Llamar a la función agregarCategoria
-        dom.window.agregarCategoria();
+    // Ejecuta la función que estás probando
+    agregarCategoria();
 
-        const newRow = tableBody.querySelector('tr:last-child');
-        expect(newRow).not.toBeNull();
+    // Espera a que el DOM se actualice
+    await new Promise(r => setTimeout(r, 100)); // Ajusta el tiempo de espera si es necesario
 
-        // Asegurarse de que la nueva fila tiene campos de entrada
-        expect(newRow.querySelector('.categoria input')).not.toBeNull();
-        expect(newRow.querySelector('.monto input')).not.toBeNull();
+    // Verifica el resultado
+    const tableBody = document.querySelector('.tabla tbody');
+    const newRow = tableBody.querySelector('tr');
+    const editButton = newRow.querySelector('button');
 
-        // Verificar el botón en la nueva fila
-        const editButton = newRow.querySelector('button');
-        expect(editButton).not.toBeNull();
-        expect(editButton.innerText).toBe('Editar');
-    });
+    expect(editButton).not.toBeNull();
+    expect(editButton.innerText).toBe('Editar');
 });

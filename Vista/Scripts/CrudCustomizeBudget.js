@@ -73,13 +73,12 @@ function agregarCategoria() {
     newRow.innerHTML = `
         <td class="categoria"><input type="text" placeholder="Categoría"></td>
         <td class="monto"><input type="text" placeholder="Monto"></td>
-        <td class="id"><input type="hidden"  value="${newId}"></td>
+        <td class="id"><input type="hidden" value="${newId}"></td>
         <td><button class="edit-button" onclick="editarFila(this)">Editar</button></td>
     `;
 
     tableBody.appendChild(newRow);
 }
-
 
 // Agrega un evento al botón 'Agregar Categoría' que llama a la función 'agregarCategoria'
 document.getElementById('agregar-categoria').addEventListener('click', agregarCategoria);

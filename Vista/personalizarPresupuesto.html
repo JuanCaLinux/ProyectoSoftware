@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="Estilos/PersonalizarPresupuesto.css">
-    <title>Document</title>
+    <title>Personalizar Presupuesto</title>
     <style>
         .edit-button {
             background-color: #4CAF50; /* Color verde */
@@ -24,7 +24,7 @@
 </head>
 <body>
 <header class="menu">
-    <a href="menu.html" class="logo_blanco_container"><img class="logo_blanco" src="Imagenes/logoBlanco-transformed.png"></a>
+    <a href="menu.html" class="logo_blanco_container"><img class="logo_blanco" src="Imagenes/logoBlanco-transformed.png" alt="Logo"></a>
 
     <ul class="lista">
         <li><a href="registroGastos.html">REGISTRAR GASTOS</a></li>
@@ -42,36 +42,19 @@
     <table class="tabla">
         <thead>
         <tr>
-            <th>CATEGORIA</th>
+            <th>CATEGORÍA</th>
             <th>PRESUPUESTO</th>
             <th>ACCIONES</th>
         </tr>
         </thead>
         <tbody>
-<!--        <tr>-->
-<!--            <td class="categoria"><input type="text" value="ALIMENTO"></td>-->
-<!--            <td class="monto"><input type="text" value="400,000"></td>-->
-<!--            <td><button class="edit-button" onclick="editarFila(this)">Editar</button></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td class="categoria"><input type="text" value="VIVIENDA"></td>-->
-<!--            <td class="monto"><input type="text" value="700,000"></td>-->
-<!--            <td><button class="edit-button" onclick="editarFila(this)">Editar</button></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td class="categoria"><input type="text" value="TRANSPORTE"></td>-->
-<!--            <td class="monto"><input type="text" value="150,000"></td>-->
-<!--            <td><button class="edit-button" onclick="editarFila(this)">Editar</button></td>-->
-<!--        </tr>-->
+        <!-- Aquí puedes agregar filas dinámicamente usando JavaScript -->
         </tbody>
     </table>
 
-    <div class="container-button">
-        <button class="scale-up-center" id="guardar"><span>GUARDAR</span></button>
-        <button class="scale-up-center" id="agregar-categoria"><span>AGREGAR CATEGORIA</span></button>
-    </div>
+    <button id="agregar-categoria" class="edit-button">Agregar Categoría</button>
+
+    <script src="Scripts/CrudCustomizeBudget.js" defer></script>
 </main>
-<script src="Scripts/CrudCustomizeBudget.js"></script>
-<script src="Scripts/HandleCategoria.js"></script>
 </body>
 </html>
