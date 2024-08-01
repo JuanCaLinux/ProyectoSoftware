@@ -15,6 +15,7 @@ import { config } from 'dotenv';
 const app = express();
 app.use(cors())
 config();
+
 const PORT = process.env.PORT || 3000;
 
 // Configurar body-parser
