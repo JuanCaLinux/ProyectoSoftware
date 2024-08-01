@@ -7,16 +7,9 @@
     }
   ],
   "routes": [
+
     {
-      "src": "/api/login",
-      "dest": "/Back/server.js"
-    },
-    {
-      "src": "/api/register",
-      "dest": "/Back/server.js"
-    },
-    {
-      "src": "/api/categoria",
+      "src": "/api/(.*)",
       "dest": "/Back/server.js"
     },
     {

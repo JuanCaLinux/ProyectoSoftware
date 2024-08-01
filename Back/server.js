@@ -38,7 +38,7 @@ app.use("/api/categoria", appCategoria);
 
 
 // Ruta para manejar el registro de gastos
-app.use(appRegistrarGasto);
+app.use("/api/registrar-gasto",appRegistrarGasto);
 
 
 
@@ -50,3 +50,17 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Servidor iniciado en el puerto ${PORT}`);
 });
+
+
+/*{
+    "src": "/api/login",
+    "dest": "/Back/server.js"
+  },
+  {
+    "src": "/api/register",
+    "dest": "/Back/server.js"
+  },
+  {
+    "src": "/api/categoria",
+    "dest": "/Back/server.js"
+  },*/
