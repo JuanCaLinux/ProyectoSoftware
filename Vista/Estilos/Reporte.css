@@ -85,3 +85,13 @@ body{
     max-width: 100%;
     height: auto;
 }
+#logoutButton img {
+    width: 24px; /* Ajusta el tamaño según sea necesario */
+    height: auto; /* Mantiene la relación de aspecto */
+}
+
+#logoutButton {
+    border: none; /* Elimina el borde del botón */
+    background: transparent; /* Hace que el botón sea transparente */
+    padding: 0; /* Elimina el relleno */
+}
