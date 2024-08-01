@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 data.data.forEach(categoria => {
                     const option = document.createElement('option');
                     option.value = categoria.id;
-                    option.textContent = categoria.nombre;
+                    option.textContent = categoria.nombre ;
                     categoriaSelect.appendChild(option);
                 });
             } else {
@@ -25,16 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Error al cargar las categorías: ' + error.message);
         });
 });
-
-
-
-
-
-
-
-
-
-
 
 
 document.getElementById('formulario').addEventListener('submit', function(event) {
