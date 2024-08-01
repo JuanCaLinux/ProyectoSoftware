@@ -27,40 +27,42 @@
     </ul>
 </header>
 
-<header id="Titulo" class="container-fluid text-center">
-    <h1 id="seguimiento">Seguimiento de gastos</h1>
-</header>
+<main>
+    <header id="Titulo" class="container-fluid text-center">
+        <h1 id="seguimiento">Seguimiento de gastos</h1>
+    </header>
 
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="categorias">
-                <button class="btn btn-light w-100 mb-2">COMIDA<br>$400.000</button>
-                <button class="btn btn-light w-100 mb-2">TRANSPORTE<br>$150.000</button>
-                <button class="btn btn-light w-100 mb-2">ENTRETENIMIENTO<br>$100.000</button>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="categorias">
+                    <button class="btn btn-light mb-2">COMIDA<br>$400.000</button>
+                    <button class="btn btn-light mb-2">TRANSPORTE<br>$150.000</button>
+                    <button class="btn btn-light mb-2">ENTRETENIMIENTO<br>$100.000</button>
+                </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="grafico-contenedor">
-                <canvas id="graficoGastos"></canvas>
+            <div class="col-md-6">
+                <div class="grafico-contenedor">
+                    <canvas id="graficoGastos"></canvas>
+                </div>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="reporte mb-4 p-3 bg-light">
-                <h2>Generar informe</h2>
-                <p>Desde: <input type="date" id="fechaInicio" class="form-control"></p>
-                <p>Hasta: <input type="date" id="fechaFin" class="form-control"></p>
-                <button id="generarInforme" class="btn btn-dark">Generar</button>
-            </div>
-            <div class="buscar p-3 bg-light">
-                <h2>Buscar gasto</h2>
-                <p>Categoría: <input type="text" id="categoria" class="form-control" value="comida"></p>
-                <p>Monto: <input type="number" id="monto" class="form-control" value="400000"></p>
-                <p>Fecha: <input type="date" id="fecha" class="form-control"></p>
-                <button id="buscarGasto" class="btn btn-dark">Buscar</button>
+            <div class="col-md-3">
+                <div class="reporte mb-4 p-3 bg-light">
+                    <h2>Generar informe</h2>
+                    <p>Desde: <input type="date" id="fechaInicio" class="form-control"></p>
+                    <p>Hasta: <input type="date" id="fechaFin" class="form-control"></p>
+                    <button id="generarInforme" class="btn btn-dark">Generar</button>
+                </div>
+                <div class="buscar p-3 bg-light">
+                    <h2>Buscar gasto</h2>
+                    <p>Categoría: <input type="text" id="categoria" class="form-control" value="comida"></p>
+                    <p>Monto: <input type="number" id="monto" class="form-control" value="400000"></p>
+                    <p>Fecha: <input type="date" id="fecha" class="form-control"></p>
+                    <button id="buscarGasto" class="btn btn-dark">Buscar</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</main>
 </body>
 </html>

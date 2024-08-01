@@ -36,6 +36,7 @@ header.menu {
     padding: 0; /* Elimina el padding */
     margin: 0; /* Elimina el margen */
     display: flex; /* Muestra los elementos de la lista en línea */
+    align-items: center; /* Centra verticalmente los elementos de la lista */
 }
 
 /* Estilo para los elementos de la lista del menú */
@@ -83,13 +84,25 @@ header.menu {
     font-size: 24px;
 }
 
-/* Estilo para los botones de categorías */
-.categorias {
-    margin-bottom: 20px; /* Añade margen inferior para separar de otros elementos */
+/* Estilo para la columna de botones */
+.col-md-3 {
+    display: flex;
+    flex-direction: column; /* Alinea los botones verticalmente */
+    align-items: flex-start; /* Alinea los botones a la izquierda */
+    padding-left: 0; /* Elimina el padding izquierdo */
 }
 
+/* Estilo para los botones de categorías */
+.categorias {
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    padding: 0; /* Elimina el padding para evitar desplazamiento */
+}
+
+/* Alinear los botones a la izquierda en la columna */
 .categorias .btn {
     margin-bottom: 10px; /* Añade margen inferior entre los botones */
+    display: block; /* Asegura que los botones se muestren como bloques para alinearse a la izquierda */
+    width: 100%; /* Asegura que los botones ocupen todo el ancho disponible */
 }
 
 /* Estilo para los formularios de reporte y búsqueda */
@@ -162,4 +175,3 @@ header.menu {
     overflow-x: auto;
     margin-bottom: 20px;
 }
-
