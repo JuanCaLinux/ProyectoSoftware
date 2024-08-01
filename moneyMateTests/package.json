@@ -16,5 +16,9 @@
 
   "scripts": {
     "start": "node app.js" // o el comando correcto para iniciar tu aplicación
+  },
+  "scripts": {
+    "test": "jest"
   }
 }
+
