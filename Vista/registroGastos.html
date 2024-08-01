@@ -34,26 +34,25 @@
     <main id="principal" class="col-7">
         <form id="formulario">
             <div class="element_form">
-                <label id="cantidad">Cantidad
-                   <input type="number">
+                <label >Cantidad
+                   <input id="cantidad" type="number">
                 </label>
             </div>
             <div class="element_form">
-                <label id="fecha">Fecha
-                    <input type="date">
+                <label >Fecha
+                    <input id="fecha" type="date">
                 </label>
             </div>
             <div class="element_form">
-                <label id="descripcion">Descripcion
-                    <input type="text">
+                <label >Descripcion
+                    <input id="descripcion" type="text">
                 </label>
             </div>
 
 
             <div class="element_form">
-                <label id="categoria">Categoria
-                    <input type="text">
-                </label>
+                <label for="categoria">Categoría:</label>
+                <select class="" id="categoria" name="categoria" required></select>
             </div>
             <div class="boton_contenedor scale-up-center">
                 <button id="button">Guardar</button>
@@ -62,5 +61,7 @@
     </main>
     </div>
 <script src="Scripts/Seguridad.js"></script>
+<script src="Scripts/HandleRegistrarGasto.js"></script>
+
 </body>
 </html>

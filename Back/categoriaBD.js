@@ -2,6 +2,32 @@ import express from "express"
 const appCategoria = express();
 import createDBConnection from "./connectBD.js";
 /*ruta que devuelve todas*/
+appCategoria.get("/", async (req, res) => {
+    let usuario_id = req.query.usuarioId;
+    console.log(usuario_id);
+    const query = 'SELECT * FROM categorias WHERE usuario_id = ?';
+
+    let db;
+    try {
+        db = await createDBConnection();
+        const [result] = await db.execute(query, [usuario_id]);
+        if (result.length > 0) {
+            res.json({ success: true, data: result });
+        } else {
+            res.json({ success: false, message: 'No se encontraron categorías' });
+        }
+    } catch (err) {
+        console.error('Error al cargar categorías:', err);
+        res.status(500).json({ success: false, message: 'Error al cargar categorías' });
+    } finally {
+        if (db) {
+            await db.end();
+            console.log('Conexión a la base de datos cerrada.');
+        }
+    }
+});
+
+
 appCategoria.get("/",async (req, res)=>{
     let usuario_id = req.query.usuarioId;
     console.log(usuario_id)

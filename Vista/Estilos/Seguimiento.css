@@ -162,6 +162,7 @@ header.menu {
     overflow-x: auto;
     margin-bottom: 20px;
 }
+
 #logoutButton img {
     width: 24px; /* Ajusta el tamaño según sea necesario */
     height: auto; /* Mantiene la relación de aspecto */
@@ -172,4 +173,3 @@ header.menu {
     background: transparent; /* Hace que el botón sea transparente */
     padding: 0; /* Elimina el relleno */
 }
-

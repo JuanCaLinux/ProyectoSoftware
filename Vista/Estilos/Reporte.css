@@ -1,56 +1,84 @@
-body{
-    background-color: #222;
-    height: 90vh;
+body {
+    background: linear-gradient(to right, #a7a7a6, #fff);
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    overflow-x: hidden; /* Oculta el desbordamiento horizontal */
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho y alto */
+    font-family: "Bebas Neue", sans-serif;
 }
 
 .menu {
+    background-color: #000;
+    height: 70px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    background-color: #333;
-    padding: 10px;
-}
-
-
-.logo_blanco_container {
-    display: flex;
+    justify-content: space-around;
     align-items: center;
 }
-.background {
-    background-color: #d9d9d9;
-    border-radius: 10px;
-    width: 330px;
-    height: 330px;
-    box-shadow: 12px 12px #a7a7a6;
-    display: grid;
-    place-items: center;
+
+.logo_blanco_container {
+    width: 100px;
+    position: relative;
 }
+
 .logo_blanco {
-    width: 50px;
-    margin-right: 10px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    margin: auto;
 }
 
-
-.menu .lista {
-    list-style: none;
-    display: inline-block;
-    vertical-align: middle;
+.lista {
+    height: 100%;
     margin: 0;
-    padding: 0;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
 }
 
-.menu .lista li {
-    display: inline;
+.lista li {
+    display: flex;
+    align-items: center;
     margin: 0 10px;
 }
 
-.menu .lista li a {
-    color: #ffffff;
+.lista li a {
     text-decoration: none;
-    font-size: 16px;
+    text-align: center;
+    line-height: 1.4;
+    color: white;
+    display: block;
+    font-size: 14px;
 }
 
-.menu .lista li a:hover {
+.lista li a br {
+    display: none; /* Ocultar el salto de línea en pantallas grandes */
+}
+
+.lista li a:hover {
     text-decoration: underline;
+}
+
+/* Para pantallas pequeñas */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .lista {
+        flex-direction: column;
+    }
+
+    .lista li {
+        margin: 10px 0;
+    }
+
+    .lista li a br {
+        display: inline; /* Mostrar el salto de línea en pantallas pequeñas */
+    }
 }
 
 #Titulo {
@@ -85,6 +113,7 @@ body{
     max-width: 100%;
     height: auto;
 }
+
 #logoutButton img {
     width: 24px; /* Ajusta el tamaño según sea necesario */
     height: auto; /* Mantiene la relación de aspecto */
@@ -94,4 +123,22 @@ body{
     border: none; /* Elimina el borde del botón */
     background: transparent; /* Hace que el botón sea transparente */
     padding: 0; /* Elimina el relleno */
+}
+
+/* Animación */
+.tracking-in-expand {
+    animation: tracking-in-expand 1s linear both;
+}
+
+@keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.2em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
 }
