@@ -83,6 +83,7 @@ h1{
 
 .container-button{
     margin-top: 10px;
+    margin-bottom: 40px;
     display: flex;
     justify-content:center;
     position: relative;
@@ -123,3 +124,129 @@ h1{
 
 .scale-up-center:hover{animation:scale-up-center forwards; }
 @keyframes scale-up-center{ 0%{transform:scale(1)} 100%{transform:scale(1.2)} }
+
+/* Estilos generales del pie de página */
+.footer {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+    height: fit-content;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+ 
+}
+
+.logo2 {
+    margin-bottom: 30px;
+}
+
+.logo-img2 {
+    width: 318px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.links-column {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.links-column h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.links-column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.links-column ul li {
+    margin-bottom: 10px;
+}
+
+.links-column ul li a {
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 14px;
+}
+
+.links-column ul li a:hover {
+    text-decoration: underline;
+}
+
+.social-media {
+    display: flex
+    ;
+        justify-content: center;
+        align-items: end;
+        margin-top: 40px;
+}
+
+.social-icon {
+    text-decoration: none;
+    margin: 0 10px;
+    color: #f0f0f0;
+    font-size: 1px;
+}
+
+.social-icon:hover {
+    color: #f3dc44;
+}
+
+.divider {
+    border: 1px solid #444;
+    margin: 40px 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 14px;
+    margin: 0 10px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+/* Estilos para el botón flotante */
+.chatbot-button {
+    position: fixed; /* Fija el botón en la pantalla */
+    bottom: 20px; /* Distancia desde el borde inferior */
+    right: 20px; /* Distancia desde el borde derecho */
+    background-color: #0088cc; /* Color de fondo de Telegram */
+    color: white; /* Color del icono */
+    padding: 15px; /* Espaciado alrededor del icono */
+    border-radius: 50%; /* Hace el botón redondo */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para el botón */
+    font-size: 70px; /* Tamaño del icono */
+    display: flex; /* Centra el icono dentro del botón */
+    justify-content: center; /* Centra el icono en el botón */
+    align-items: center; /* Centra el icono en el botón */
+    z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
+    transition: background-color 0.3s ease; /* Animación suave en el cambio de color */
+}
+
+.chatbot-button:hover {
+    background-color: #007bb5; /* Color de fondo al pasar el ratón */
+}
+
+.chatbot-button i {
+    font-size: 30px; /* Tamaño del icono de Telegram */
+}
