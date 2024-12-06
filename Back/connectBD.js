@@ -1,29 +1,21 @@
-import mysql from 'mysql2/promise'; // Importa la versión con soporte de promesas
-import { config } from 'dotenv';
+import mysql from 'mysql2/promise';  // Usamos mysql2 con promise
 
-config(); // Cargar variables de entorno desde .env
-
+// Crear la conexión a la base de datos de manera que podamos usar async/await
 const createDBConnection = async () => {
     try {
-        const host = process.env.DB_HOST || "localhost";
-        const port = process.env.DB_PORT || 3306;
-        const user = process.env.DB_USER || "root";
-        const password = process.env.DB_PASSWORD || "root";
-        const database = process.env.DB_NAME || "moneymate";
-
-        const db = await mysql.createConnection({
-            host,
-            port,
-            user,
-            password,
-            database,
+        // Usamos las variables de entorno configuradas en Vercel
+        const connection = await mysql.createConnection({
+            host: process.env.DB_HOST,  // Utilizamos la variable de entorno DB_HOST
+            user: process.env.DB_USER,  // Utilizamos la variable de entorno DB_USER
+            password: process.env.DB_PASSWORD,  // Utilizamos la variable de entorno DB_PASSWORD
+            database: process.env.DB_NAME,  // Utilizamos la variable de entorno DB_NAME
+            port: 3306  // El puerto generalmente sigue siendo 3306
         });
-
-        console.log('Conectado a la base de datos MySQL.');
-        return db;
+        console.log('Conexión a MySQL exitosa');
+        return connection; // Retornamos la conexión
     } catch (err) {
         console.error('Error al conectar a la base de datos:', err);
-        throw err;
+        throw err; // Propagamos el error para manejarlo en el controlador
     }
 };
 
