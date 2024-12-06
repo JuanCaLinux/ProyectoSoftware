@@ -11,11 +11,16 @@ const createDBConnection = async () => {
             throw new Error('DATABASE_URL no está definida en las variables de entorno');
         }
 
-        // Desglosar la URL de la base de datos en sus componentes
-        const db = await mysql.createConnection(databaseUrl); // Solo pasar la URL directamente
+        // Configuración para la conexión con SSL
+        const connection = await mysql.createConnection({
+            uri: databaseUrl,
+            ssl: {
+                ca: fs.readFileSync('/path/to/BaltimoreCyberTrustRoot.crt.pem'), // Ruta al certificado raíz de Azure (puede que lo necesites)
+            }
+        });
 
-        console.log('Conectado a la base de datos MySQL.');
-        return db;
+        console.log('Conectado a la base de datos MySQL con SSL.');
+        return connection;
     } catch (err) {
         console.error('Error al conectar a la base de datos:', err);
         throw err;
